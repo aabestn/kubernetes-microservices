@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: microservice-alerts
+  namespace: monitoring
+  labels:
+    role: alert-rules
+spec:
+  groups:
+  - name: cluster-health.rules
+    rules:
+    - alert: HighCPUThrottling
+      expr: sum(rate(container_cpu_cfs_throttled_periods_total[5m])) by (pod) / sum(rate(container_cpu_cfs_periods_total[5m])) by (pod) * 100 > 25
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High CPU throttling detected on {{ $labels.pod }}"
+        description: "Pod {{ $labels.pod }} is being throttled by more than 25% over the last 5 minutes."
+
+    - alert: PodFailoverTriggered
+      expr: kube_pod_status_ready{condition="true"} < 1
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Pod Readiness Failure in {{ $labels.namespace }}"
+        description: "Pod {{ $labels.pod }} has failed health probes and triggered operator zero-downtime failover."

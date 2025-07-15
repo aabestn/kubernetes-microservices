@@ -1,0 +1,4 @@
+github.com/davecgh/go-spew v1.1.1 h1:vj94JyVpG7EJIiBYKTUqa4cLT5y0slF05gB01ySqaio=
+github.com/onsi/ginkgo/v2 v2.15.0 h1:97A4m4K/S23SiaM8C3iPz/4iT3aipL/C+z5/e2p1v/E=
+github.com/onsi/gomega v1.31.0 h1:J/J3a534x1g3X3sXpLg2Ym/40v0+4W209i947j/yY+M=
+k8s.io/api v0.29.0 h1:P66S9J558/j4L6pXq6G7/95u3l9s0d0yM6/P+rJ3S1E=

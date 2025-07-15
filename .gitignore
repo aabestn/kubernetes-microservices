@@ -1,0 +1,26 @@
+# Binaries & Tooling
+bin/
+obj/
+*.exe
+*.dll
+
+# Go build artifacts
+*.out
+coverage.txt
+vendor/
+
+# Terraform state
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars.json
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS artifacts
+.DS_Store
+Thumbs.db

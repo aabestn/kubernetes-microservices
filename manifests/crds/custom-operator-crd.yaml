@@ -1,0 +1,11 @@
+apiVersion: app.example.com/v1alpha1
+kind: AppDeployment
+metadata:
+  name: sample-microservice
+  namespace: default
+spec:
+  replicas: 3
+  image: ghcr.io/aabestn/microservices-app:latest
+  port: 8080
+  canaryPercent: 10
+  autoFailover: true

@@ -1,0 +1,11 @@
+.git
+.github
+.gitignore
+Dockerfile*
+bin/
+cover.out
+dist/
+manifests/
+terraform/
+helm/
+*.md
